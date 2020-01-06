@@ -18,3 +18,4 @@ use Illuminate\Http\Request;
 // });
 
 Route::get('customers', function () {});
+Route::post('customers', function () {});
