@@ -42,4 +42,12 @@ class ReportTest extends TestCase
         $response = $this->post('api/customers/1');
         $response->assertStatus(200);
     }
+    /**
+     * @test
+     */
+    public function api_customers_customer_idにDELETEメソッドでアクセスできる()
+    {
+        $response = $this->delete('api/customers/1');
+        $response->assertStatus(200);
+    }
 }
