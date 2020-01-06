@@ -25,3 +25,4 @@ Route::delete('customers/{customer_id}', function () {});
 Route::get('reports', function () {});
 Route::post('reports', function () {});
 Route::get('reports/{report_id}', function () {});
+Route::post('reports/{report_id}', function () {});
