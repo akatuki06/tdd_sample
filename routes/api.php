@@ -20,3 +20,4 @@ use Illuminate\Http\Request;
 Route::get('customers', function () {});
 Route::post('customers', function () {});
 Route::get('customers/{customer_id}', function () {});
+Route::post('customers/{customer_id}', function () {});
