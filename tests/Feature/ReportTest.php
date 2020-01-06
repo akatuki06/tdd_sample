@@ -50,4 +50,14 @@ class ReportTest extends TestCase
         $response = $this->delete('api/customers/1');
         $response->assertStatus(200);
     }
+    /**
+     * @test
+     */
+    public function api_reportsにGETメソッドでアクセスできる()
+    {
+        // 実行
+        $response = $this->get('api/reports');
+        // 検証
+        $response->assertStatus(200);
+    }
 }
