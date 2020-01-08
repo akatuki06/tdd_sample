@@ -17,7 +17,9 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::get('customers', function () {});
+Route::get('customers', function () {
+    return response()->json(\App\Customer::query()->select(['id', 'name'])->get());
+});
 Route::post('customers', function () {});
 Route::get('customers/{customer_id}', function () {});
 Route::post('customers/{customer_id}', function () {});

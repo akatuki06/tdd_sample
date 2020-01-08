@@ -8,6 +8,13 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ReportTest extends TestCase
 {
+    use RefreshDatabase;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->artisan('db:seed', ['--class' => 'TestDataSeeder']);
+    }
     /**
      * @test
      */
@@ -17,6 +24,32 @@ class ReportTest extends TestCase
         $response = $this->get('api/customers');
         // 検証
         $response->assertStatus(200);
+    }
+    /**
+     * @test
+     */
+    public function api_customersにGETメソッドでアクセスするとJSONが返却される()
+    {
+        $response = $this->get('api/customers');
+        $this->assertThat($response->content(), $this->isJson());
+    }
+    /**
+     * @test
+     */
+    public function api_customersにGETメソッドで取得できる顧客情報のJSON形式は要件通りである()
+    {
+        $response = $this->get('api/customers');
+        $customers = $response->json();
+        $customer = $customers[0];
+        $this->assertSame(['id', 'name'], array_keys($customer));
+    }
+    /**
+     * @test
+     */
+    public function api_customersにGETメソッドでアクセスすると2件の顧客リストが返却される()
+    {
+        $response = $this->get('api/customers');
+        $response->assertJsonCount(2);
     }
     /**
      * @test
