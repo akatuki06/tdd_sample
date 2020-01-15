@@ -12,7 +12,7 @@ class ApiController extends Controller
         return response()->json(\App\Customer::query()->select(['id', 'name'])->get());
     }
 
-    public function postCustomers(Request $request)
+    public function postCustomer(Request $request)
     {
         if (!$request->json('name')) {
             return response()->json(
@@ -30,7 +30,7 @@ class ApiController extends Controller
         //
     }
 
-    public function postCustomer()
+    public function putCustomer()
     {
         //
     }
