@@ -78,7 +78,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    // 'locale' => 'en',
+    'locale' => 'ja',
 
     'faker_locale' => 'ja_JP', // 追加
 
